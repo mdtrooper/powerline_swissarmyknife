@@ -61,7 +61,7 @@ Shows the upload and download rate and count of torrents download in Deluge.
 ```
 
 
-![screenshot deluge](https://raw.githubusercontent.com/mdtrooper/powerline_dice/master/powerline_deluge.jpg "screenshot deluge")
+![screenshot deluge](https://raw.githubusercontent.com/mdtrooper/powerline_swissarmyknife/master/powerline_deluge.jpg "screenshot deluge")
 
 Show a random pornstar from redtube api.
 
@@ -76,8 +76,8 @@ Show a random pornstar from redtube api.
 },
 ```
 
-![screenshot pornstar](https://raw.githubusercontent.com/mdtrooper/powerline_dice/master/powerline_pornstar.jpg "screenshot pornstar")
+![screenshot pornstar](https://raw.githubusercontent.com/mdtrooper/powerline_swissarmyknife/master/powerline_pornstar.jpg "screenshot pornstar")
 
 ## License
 
-Licensed under [the GPL3 License](https://github.com/mdtrooper/powerline_slotmachine/blob/master/LICENSE).
+Licensed under [the GPL3 License](https://github.com/mdtrooper/powerline_swissarmyknife/blob/master/LICENSE).
