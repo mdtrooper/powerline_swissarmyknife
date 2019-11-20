@@ -18,19 +18,36 @@
 
 import subprocess
 
-def execute(pl, commandLine='', line='{preContent}{output}{err}{postContent}', successCodes=None, failureCode=None, preContent='', postContent='🧰', *args, **kwargs):
+def execute(pl, commandLine='', line='{preContent}{output}{err}{postContent}', preContent='', postContent='🤖', successCodes=None, failureCodes=None, *args, **kwargs):
+    """
+        Return a segment with the info (as output and or error) from command line execution.
+        Args:
+            pl (object): The powerline logger. 
+            commandLine (string): The command line to execute, it can be complex (with pipes).
+            line (string): The string to format the content of segment.
+                Default value: {preContent}{output}{err}{postContent}
+            preContent (string): The string to show before the result.
+            postContent (string): The string to show after the result.
+                Default value: 🤖
+            successCodes list(int) or None: The values are success code return (normally 0), the background
+                change to critical success. 
+            failureCodes list(int) or None:  The values are fail code return, the background
+                change to critical failture. 
+        Returns:
+            segment (list(dict)): The formated line with output of execution command line as powerline segment.
+    """
     result = subprocess.run(commandLine, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     
     returncode = result.returncode
-    output = result.stdout.decode('utf8')
-    err = result.stderr.decode('utf8')
+    output = result.stdout.decode('utf8').strip()
+    err = result.stderr.decode('utf8').strip()
     
     color = ['information:regular']
     if isinstance(successCodes, list):
         if returncode in successCodes:
             color = ['critical:success']
-    elif isinstance(failureCode, list):
-        if returncode in failureCode:
+    elif isinstance(failureCodes, list):
+        if returncode in failureCodes:
             color = ['critical:failure']
     
     return [{
